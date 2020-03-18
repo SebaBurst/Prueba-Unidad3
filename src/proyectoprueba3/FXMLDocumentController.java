@@ -6,7 +6,11 @@
 package proyectoprueba3;
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -59,6 +63,11 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private TextField FielNombre;
+    
+    @FXML
+    private TextField fechaActual;
+    @FXML
+    private TextField horaActual;
 
     @FXML
     private void enviarMensaje(ActionEvent event) {
@@ -87,15 +96,20 @@ public class FXMLDocumentController implements Initializable {
                 String mensaje = FieldMensaje.getText();
                 boolean validarMensaje = Validaciones.validarMensaje(mensaje, false);
                 if(validarMensaje){
-                    
+                    ProyectoPrueba3.mensajes.add(AreaTextoRecibido.getText());
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Informacion");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Mensaje enviado con exito.");
+                    alert.showAndWait();
                     
                 }
                 else{
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Informacion");
-                alert.setHeaderText(null);
-                alert.setContentText("Mensaje Mal");
-                alert.showAndWait();
+                    alert.setTitle("Informacion");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Mensaje Mal");
+                    alert.showAndWait();
                 }
             }
             
@@ -117,7 +131,15 @@ public class FXMLDocumentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                fechaActual.setText(LocalDate.now().toString());
+                horaActual.setText(LocalTime.now().toString());
+            }
+        };
+        Timer timer = new Timer(true);
+        timer.scheduleAtFixedRate(timerTask, 0, 60);
     }
 
 }
