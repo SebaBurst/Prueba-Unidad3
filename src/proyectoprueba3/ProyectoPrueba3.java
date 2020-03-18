@@ -20,6 +20,10 @@ public class ProyectoPrueba3 extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
+        respuestas.add("Hola, estoy bien");
+        respuestas.add("Mal");
+        respuestas.add("No lo se");
+        respuestas.add("Quizas");
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
         
         Scene scene = new Scene(root);
@@ -29,6 +33,7 @@ public class ProyectoPrueba3 extends Application {
     }
     
     public static ArrayList<String> mensajes = new ArrayList<>();
+    public static ArrayList<String> respuestas = new ArrayList<>();
     /**
      * @param args the command line arguments
      */

@@ -65,9 +65,9 @@ public class FXMLDocumentController implements Initializable {
     private TextField FielNombre;
     
     @FXML
-    private TextField fechaActual;
+    private Label fechaActual;
     @FXML
-    private TextField horaActual;
+    private Label horaActual;
 
     @FXML
     private void enviarMensaje(ActionEvent event) {
