@@ -132,7 +132,7 @@ public class FXMLDocumentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        TimerTask timerTask = new TimerTask() {
+        /*TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
                 fechaActual.setText(LocalDate.now().toString());
@@ -140,7 +140,7 @@ public class FXMLDocumentController implements Initializable {
             }
         };
         Timer timer = new Timer(true);
-        timer.scheduleAtFixedRate(timerTask, 0, 60);
+        timer.scheduleAtFixedRate(timerTask, 0, 60);*/
     }
         @FXML
     private void verHistorial(){
