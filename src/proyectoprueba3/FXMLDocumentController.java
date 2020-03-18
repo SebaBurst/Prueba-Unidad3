@@ -8,6 +8,7 @@ package proyectoprueba3;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -140,6 +141,26 @@ public class FXMLDocumentController implements Initializable {
         };
         Timer timer = new Timer(true);
         timer.scheduleAtFixedRate(timerTask, 0, 60);
+    }
+        @FXML
+    private void verHistorial(){
+        ArrayList<String> recibidos = new ArrayList();
+        recibidos.add("recibido 1");
+        recibidos.add("recibido 2");
+        recibidos.add("Recibidos 3");
+        recibidos.add("Recibidos 4");
+        ArrayList<String> enviado = new ArrayList();
+        enviado.add("enviado 1");
+        enviado.add("enviado 2");
+        enviado.add("enviado 3");
+        enviado.add("enviado 4");
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Historial");
+        alert.setHeaderText("Mensajes recibidos:\n 1.-"+recibidos.get(0)+"\n 2.-"+recibidos.get(1)+"\n 3.-"+recibidos.get(2)+"\n 4.-"+recibidos.get(3)
+        +"\n\nEnviados:\n 1.-"+enviado.get(0)+"\n 2.-"+enviado.get(1)+"\n 3.-"+enviado.get(2)+"\n 4.-"+enviado.get(3));
+        alert.setContentText(null);
+        alert.showAndWait();
+        
     }
 
 }
