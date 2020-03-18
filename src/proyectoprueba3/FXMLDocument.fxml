@@ -65,7 +65,7 @@
       </Label>
       <TextField fx:id="FieldFecha" layoutX="62.0" layoutY="154.0" text="Fecha" />
       <TextField fx:id="FieldHora" layoutX="257.0" layoutY="154.0" text="Hora" />
-      <Button layoutX="428.0" layoutY="154.0" mnemonicParsing="false" text="Modificar" />
+      <Button fx:id="BotonvalidarFecha" layoutX="428.0" layoutY="154.0" mnemonicParsing="false" onAction="#validarFechaHora" text="Validar" />
       <Label layoutX="64.0" layoutY="129.0" text="FORMATO: dd/mm/aaaa" textFill="WHITE" />
       <Label layoutX="257.0" layoutY="129.0" text="FORMATO: hh:mm" textFill="WHITE" />
     </children>

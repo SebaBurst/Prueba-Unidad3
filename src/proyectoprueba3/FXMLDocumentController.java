@@ -10,6 +10,8 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
@@ -49,13 +51,28 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button BotonResponder;
     @FXML
+    private Button BotonvalidarFecha;
+    @FXML
     private TextField FieldFecha;
     @FXML
     private TextField FieldHora;
     
+    @FXML
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
         label.setText("Hello World!");
+    }
+    
+    @FXML
+    private void validarFechaHora(ActionEvent event) {
+        if (Validaciones.validarFecha(FieldFecha.getText())) {
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Informacion");
+            alert.setHeaderText("Fecha validad con exito");
+            alert.setContentText(null);
+
+            alert.showAndWait();
+        }
     }
     
     @Override
