@@ -23,7 +23,7 @@ import javafx.scene.control.TextField;
  * @author sebar
  */
 public class FXMLDocumentController implements Initializable {
-    
+
     @FXML
     private Label label;
     @FXML
@@ -56,13 +56,53 @@ public class FXMLDocumentController implements Initializable {
     private TextField FieldFecha;
     @FXML
     private TextField FieldHora;
-    
+
     @FXML
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
+    private TextField FielNombre;
+
+    @FXML
+    private void enviarMensaje(ActionEvent event) {
+        boolean valido = true;
+        String numero = FieldNumero.getText();
+        String nombre = FielNombre.getText();
+        boolean valido2 = Validaciones.validarNumero(numero, false);
+        System.out.println("");
+        if (valido2 == false) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Informacion");
+            alert.setHeaderText(null);
+            alert.setContentText("Numero mal");
+            alert.showAndWait();
+
+        } else {
+            boolean validonumero = Validaciones.validarNombre(nombre, false);
+            if (validonumero == false) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Informacion");
+                alert.setHeaderText(null);
+                alert.setContentText("Nombre mal");
+                alert.showAndWait();
+            }
+            else{
+                String mensaje = FieldMensaje.getText();
+                boolean validarMensaje = Validaciones.validarMensaje(mensaje, false);
+                if(validarMensaje){
+                    
+                    
+                }
+                else{
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Informacion");
+                alert.setHeaderText(null);
+                alert.setContentText("Mensaje Mal");
+                alert.showAndWait();
+                }
+            }
+            
+
+        }
     }
-    
+
     @FXML
     private void validarFechaHora(ActionEvent event) {
         if (Validaciones.validarFecha(FieldFecha.getText())) {
@@ -74,10 +114,10 @@ public class FXMLDocumentController implements Initializable {
             alert.showAndWait();
         }
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
 }
