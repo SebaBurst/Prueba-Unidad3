@@ -5,6 +5,7 @@
  */
 package proyectoprueba3;
 
+import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -26,7 +27,8 @@ public class ProyectoPrueba3 extends Application {
         stage.setScene(scene);
         stage.show();
     }
-
+    
+    public static ArrayList<String> mensajes = new ArrayList<>();
     /**
      * @param args the command line arguments
      */
