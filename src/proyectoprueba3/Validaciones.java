@@ -37,4 +37,24 @@ public class Validaciones {
         }
         return validar;
     }
+    
+    public static boolean validarNombre(String nombre, boolean validar){
+        if(nombre.length()>10){
+            System.out.println("El nombre ingresado es muy largo.");
+            return validar;
+        }else{
+            validar = true;
+            return validar;
+        }
+    }
+    
+    public static boolean validarMensaje(String mensaje, boolean validar){
+        if(mensaje.length()>50){
+            System.out.println("El mensaje ingresado es muy largo.");
+            return validar;
+        }else{
+            validar = true;
+            return validar;
+        }
+    }
 }
