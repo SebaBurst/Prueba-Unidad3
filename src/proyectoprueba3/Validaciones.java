@@ -57,4 +57,16 @@ public class Validaciones {
             return validar;
         }
     }
+    
+    public void esHumano(String validacion) {
+        boolean validar = false;
+        while (!validar) {
+            if (validacion.equals("Soy Humano")) {
+                System.out.println("Verificado");
+                validar = true;
+            } else {
+                System.out.println("Error, vuelve a intentarlo");
+            }
+        }
+    } 
 }
