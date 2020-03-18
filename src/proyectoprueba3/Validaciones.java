@@ -5,11 +5,25 @@
  */
 package proyectoprueba3;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 /**
  *
  * @author Daniel-PC
  */
 public class Validaciones {
+    
+    public static boolean validarFecha(String fecha){
+        try {
+            SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+            formatoFecha.setLenient(false);
+            formatoFecha.parse(fecha);
+        } catch (ParseException e) {
+            return false;
+        }
+        return true;
+    }
     
     public static boolean validarNumero(String numero, boolean validar){
         if(!numero.startsWith("9")){
